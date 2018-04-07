@@ -1,0 +1,731 @@
+import time,sys
+
+def slow_type(s):
+  for c in s + '\n':
+    sys.stdout.write(c)
+    sys.stdout.flush()
+    time.sleep(1./15)
+    
+def intro():
+  if __name__ == "__main__":
+    slow_type("You settle into your chair and boot up a new game.") 
+    time.sleep(1)
+    slow_type("The screen flickers to life; its harsh light stinging your eyes.")
+    time.sleep(1)
+    slow_type("Apart from the pitter patter of keystrokes and your own breath, the house is silent.")
+def intro_2():
+  if __name__ == "__main__":
+    slow_type("Enveloped within the screenlight's bubble, you begin to play.") 
+    time.sleep(1)
+    slow_type("You lift a warm cup to your lips and sip.")
+    time.sleep(1)
+    slow_type("Dead leaves rasp across the lawn.")
+    time.sleep(2)
+    slow_type("You have yet to exit the opening scene.")
+
+def continue_path():
+  path = ""
+  while path != "Y" and path != "N":
+    path = input("Continue? (Y/N) ")
+     
+    if  path == "Y":
+      slow_type("You continue.")
+      print("")
+    else:
+      slow_type("You don't feel like continuing.")
+      End_Game()
+  return path
+  
+def Message_Room():
+  slow_type("Hey, it's me.") 
+  print("")
+  time.sleep(1)
+  slow_type("Just wanted to let you guys know that the fridge is making weird noises.")
+  time.sleep(1)
+  slow_type("I know it's probably nothing, but I'd like to have maintenance check it out.")
+  time.sleep(1)
+  slow_type("Thanks a bunch.")
+  print("")
+  time.sleep(3)
+  slow_type("I've been putting off that call for weeks.")
+  time.sleep(1)
+  slow_type("I just never had the time, I guess.")
+  time.sleep(1)
+  print("")
+
+
+def Maintenance_Room_Yes():
+  time.sleep(1)
+  slow_type("You dial maintenance.")
+  time.sleep(1)
+  slow_type("It rings until a scratchy software voice informs you that no is available.")
+  time.sleep(1)
+  slow_type("It promises to return any and all messages in a timely fashion.")
+  
+  choice = ""
+  
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Hang up.
+        B) Leave a message.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        Maintenance_Room_No()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Message_Room()
+        
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+def End_Game():
+  time.sleep(1)
+  slow_type("Thanks for playing.")
+  quit()
+  
+
+def The_Questions():
+  time.sleep(2)
+  print("")
+  slow_type("A voice calls out to you.")
+  time.sleep(1)
+  slow_type("We will meet in The Questions.")
+  End_Game()
+
+def The_Questions_Entrance_Good():
+  time.sleep(2)
+  slow_type("You finally make some progress in the game, and move past the opening sequence.")
+  time.sleep(1)
+  slow_type("YOu're not sure if this is the best way to spend your time.")
+  time.sleep(1)
+  slow_type("You have some take-home work to finish up.")
+  time.sleep(1)
+  slow_type("There's a mound of half-read books beside you.")
+  time.sleep(1)
+  slow_type("The dishes have piled up... the lawn's due for a trim.")
+  time.sleep(2)
+  print("")
+  slow_type("But you feel as if something's waiting for you here, and you...")
+  continue_path()
+  The_Questions()
+  
+def The_Questions_Entrance_Bad():
+  time.sleep(2)
+  slow_type("You sit down at the computer.") 
+  time.sleep(1)
+  slow_type("You can't stop shaking.")
+  time.sleep(1)
+  slow_type("You know what you're avoiding.")
+  time.sleep(1)
+  slow_type("You have take-home work.")
+  slow_type("the dishes are piling up.")
+  slow_type("The lawn needs to be mowed.")
+  slow_type("You'll never send that letter.")
+  time.sleep(2)
+  print("")
+  slow_type("You know something's wrong")
+  time.sleep(1)
+  slow_type("But you don't want to think about it.")
+  continue_path()
+  The_Questions()
+
+def Anxiety_Hits_Branch():
+  slow_type("You jerk out of your seat.")
+  time.sleep(1)
+  slow_type("You feel dizzy and weak, like your feet are dangling over the edge of a cliff.")
+  time.sleep(1)
+  slow_type("Your chest quivers.")
+  time.sleep(2)
+  slow_type("Do you have much time left?")
+  choice = ""
+  while choice != "A" and choice != "B" and choice != "C":
+      choice = input('''
+        A) Just wait this out.
+        B) Try eating something.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        slow_type("The lightness crawls along your throat.")
+        time.sleep(1)
+        slow_type("It reminds you of elementary school.")
+        time.sleep(1)
+        slow_type("You kept trying to vomit, over and over.")
+        time.sleep(2)
+        print("")
+        slow_type("You just wanted to go home.")
+        time.sleep(2)
+        print("")
+        The_Questions_Entrance_Bad()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        slow_type("You haven't eaten all day, now that you think about it.")
+        time.sleep(1)
+        slow_type("You walk to the kitchen, its narrow counters strewn with dirty dishes.")
+        time.sleep(1)
+        slow_type("You grab a grimy pot and start to brush away the caked-on grease.")
+        time.sleep(1)
+        slow_type("Your head hurts, and your dizziness remains.")
+        time.sleep(2)
+        slow_type("But you focus on your task.")
+        time.sleep(1)
+        slow_type("Before long you have a pile of plain black beans before you.")
+        time.sleep(1)
+        print("")
+        slow_type("You wolf them down; the simple meal warms your belly and eases your mind.")
+        time.sleep(1)
+        slow_type("You still don't feel great- but you can sit down and play again.")
+        The_Questions_Entrance_Good()
+        
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+
+def Anxiety_Hits():
+  slow_type("Then it starts-")
+  time.sleep(1)
+  slow_type("A little buzz blanketing your skull, growing stronger with each breath.")
+  slow_type("A queasy lightness swirls in your stomach.")
+  time.sleep(2)
+  slow_type("It begins to spread across your body.")
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Try concentrating on the game.
+        B) You have to do something about this.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        slow_type("Remember the game, you've never played this one before.")
+        time.sleep(1)
+        slow_type("You try to let its novelty distract your mind.")
+        time.sleep(1)
+        slow_type("Get lost in it's causeways and mazes.")
+        time.sleep(1)
+        slow_type("Forget about how you feel.")
+        time.sleep(1)
+        slow_type("Keep playing.")
+        The_Questions_Entrance_Bad()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Anxiety_Hits_Branch()
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+
+
+def Hurricane_Text_No():
+  slow_type("Your family lives on the outskirts of town.")
+  time.sleep(1)
+  slow_type("Your friends have probably evacuated.")
+  time.sleep(1)
+  slow_type("There's no reason to worry.")
+  time.sleep(1)
+  slow_type("There's nothing you can do anyway...")
+  time.sleep(2)
+  slow_type("If they need something from you, they'll call.")
+  The_Questions_Entrance_Good()
+
+def Hurricane_Text():
+  slow_type("You sit back down. As your fingers meet the keys, it starts to rain.")
+  time.sleep(1)
+  slow_type("You forgot about the hurricane that's supposed to make landfall tonight.")
+  time.sleep(1)
+  slow_type("Luckily, you fall well outside the projected path.")
+  time.sleep(2)
+  print("")
+  time.sleep(2)
+  slow_type("Strange how you're just sitting there, absentmindedly playing a game,")
+  time.sleep(1)
+  slow_type("While terror looms over an entire city, where you have friends and family.")
+  time.sleep(1)
+  slow_type("For them, this night means abject horror and pain.")
+  time.sleep(1)
+  slow_type("For you, the hurricane brings the rap of soft rain.")
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Text them to see if they're doing ok.
+        B) There's nothing you can do for them.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        slow_type("You type a generic how-are-you-guys-faring text and send it to several numbers.")
+        time.sleep(2)
+        print("")
+        slow_type("The wind whips rain against the window")
+        time.sleep(1)
+        slow_type("No replies.")
+        time.sleep(1)
+        slow_type("Maybe their power is down.")
+        time.sleep(1)
+        slow_type("Your phone has also had trouble receiving messages lately, perhaps they can't reach you.")
+        time.sleep(1)
+        
+        Nested_Choice = ""
+        while Nested_Choice != "A" and Nested_Choice != "B":
+          Nested_Choice = input('''
+          A) The texts might come through if you restart your phone.
+          B) It's late, you'll probably hear back from them tomorrow.''')
+          print("")
+          if Nested_Choice == "A":
+            print("")
+            time.sleep(1)
+            slow_type("You hold the power button down, resetting the phone.")
+            time.sleep(1)
+            slow_type("You stare at the empty screen until you can load your messages.")
+            time.sleep(2)
+            slow_type("No responses.")
+            time.sleep(2)
+            slow_type("You really didn't hear anything back.")
+            time.sleep(1)
+            print("")
+            Anxiety_Hits()
+          elif Nested_Choice == "B":
+            print("")
+            time.sleep(1)
+            Hurricane_Text_No()
+          else:
+            slow_type("You cannot leave this place.")
+            return Nested_Choice
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Hurricane_Text_No()
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+def Window_No_Focus_YN():
+  slow_type("You rise from your chair and step towards the window.")
+  time.sleep(2)
+  slow_type("You spread the blind and peer onto the street.")
+  time.sleep(2)
+  slow_type("Black clouds glaze the sky, but the street lights are still dark.")
+  time.sleep(1)
+  slow_type("The street is empty.")
+  time.sleep(1)
+  print("")
+  slow_type("Where is the light coming from?")
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Just shut the damn blinds.
+        B) There's no rush, keep looking.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        slow_type("The fridge pops.")
+        time.sleep(1)
+        slow_type("You roll the blinds shut, careful not to look outside.")
+        time.sleep(1)
+        slow_type("You fall into your seat and resume playing.")
+        time.sleep(1)
+        slow_type("The light occasionally shines through, though it's less glaring.")
+        time.sleep(1)
+        slow_type("You mete your agitation upon the keys.")
+        continue_path()
+        Anxiety_Hits()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        slow_type("You twirl the blind's cord in your hands, shoulder propped against the wall.")
+        time.sleep(1)
+        slow_type("The lights reapper, and you instinctively duck.")
+        time.sleep(2)
+        slow_type("It's just a couple kids with flashlights.")
+        time.sleep(1)
+        slow_type("You watch them play for a few seconds, then close the blinds.")
+        continue_path()
+        The_Questions_Entrance_Good()
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+def Window_No_Focus():
+  slow_type("You return to the game, but find it difficult to focus.")
+  time.sleep(1)
+  slow_type("Your eye stray from the screen, meeting blackness on either side.")
+  time.sleep(1)
+  slow_type("The window in the office starts to bother you.")
+  time.sleep(2)
+  print("")
+  slow_type("It could be the constant headlights passing by that's disturbing your game...")
+  time.sleep(2)
+  slow_type("You just haven't heard any cars.")
+  
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Close the blinds.
+        B) Try to find the source of the light.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        slow_type("The chair pops as you rise.")
+        time.sleep(1)
+        slow_type("You latch the window and close the blinds, taking care not to look outside.")
+        time.sleep(2)
+        slow_type("The light still shines through, though it's less glaring now.")
+        continue_path()
+        Anxiety_Hits()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Window_No_Focus_YN()
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+def Charger_Got():
+  slow_type("You slide the charger into your phone and wait for it to reboot.")
+  time.sleep(2)
+  slow_type("The screen returns to life, the throbbing red mote reassures you.")
+  time.sleep(1)
+  slow_type("You send the text.")
+  time.sleep(2)
+  slow_type("You doubt you'll hear back tonight, but you feel better.")
+  time.sleep(1)
+  slow_type("You can return to the game.")
+  continue_path()
+  Hurricane_Text()
+
+
+def Window_No():
+  slow_type("Whatever that was, you'd rather not deal with it right now")
+  time.sleep(1)
+  slow_type("You hurry back to the office, ever crook of your body undulating weakness.")
+  time.sleep(1)
+  slow_type("Your fingers tremble, and you try to avoid looking out your peripheries.")
+  continue_path()
+  Window_No_Focus()
+
+def Window_YN():
+  path = ""
+  while path != "Y" and path != "N":
+    path = input("Do you open the window? (Y/N) ")
+     
+    if  path == "Y":
+      slow_type("The blinds unwind, revealing an overgrown backyard and little else.")
+      slow_type("You wait.")
+      time.sleep(3)
+      slow_type("Not even a squirrel, or bird... just the steady cricket creak.")
+      time.sleep(1)
+      slow_type("You close the blinds and try to find the charger.")
+      time.sleep(2)
+      slow_type("You fumble through the drawers, and spot the charger on the floor.")
+      time.sleep(1)
+      slow_type("Your knees buckle as you bend to retrieve it, weakness undulating from every crook of your body.")
+      slow_type("You hurry out of the room.")
+      time.sleep(1)
+      print("")
+      Charger_Got()
+    else:
+      slow_type("Your courage fails.")
+      Window_No()
+  return path
+
+def Bed_Room():
+  slow_type("You rise from your chair and shuffle towards the bedroom.")
+  time.sleep(1)
+  slow_type("The hallway is dark, forcing you to feel your way along the textured walls.")
+  time.sleep(3)
+  slow_type("As you turn the corner, something looks at you from the bedroom window then vanishes.")
+  print("")
+  time.sleep(3)
+  choice = ""
+  while choice != "A" and choice != "B" and choice != "C":
+      choice = input('''
+        A) Ignore it and go find your charger.
+        B) Check out the window.
+        C)Head back to the office.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        slow_type("The window has been bothering you lately.")
+        time.sleep(1)
+        slow_type("The cheap plastic pane won't pop into the frame properly.")
+        time.sleep(1)
+        slow_type("The room swelters during the day, and humidty seeps in at night.")
+        time.sleep(1)
+        slow_type("you often wake up, slick with sweat, panting, and staring at the window...")
+        time.sleep(1)
+        slow_type("convinced that something has slunk in while you slept.")
+        time.sleep(1)
+        print("")
+        slow_type("You know you're being paranoid. There's nothing there at night, and there's nothing there now.")
+        time.sleep(1)
+        slow_type("You flip on the light and search for your charger; the cat surveys your progress.")
+        time.sleep(1)
+        slow_type("You discover it, buried beneath your underwear on the floor.")
+        time.sleep(1)
+        slow_type("One last glance at the window...")
+        time.sleep(3)
+        print("")
+        slow_type("Still nothing. You head back the computer.")
+        print("")
+        continue_path()
+        Hurricane_Text()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        slow_type("The window has been bothering you lately.")
+        time.sleep(1)
+        slow_type("The cheap plastic won't pop into the frame properly.")
+        time.sleep(1)
+        slow_type("The room swelters during the day, and humidty seeps in at night.")
+        time.sleep(1)
+        slow_type("you often wake up, slick with sweat, panting, and staring at the window...")
+        time.sleep(1)
+        slow_type("convinced that something has slunk in while you slept.")
+        time.sleep(1)
+        print("")
+        slow_type("A streak of courage guides to the pane.")
+        time.sleep(1)
+        slow_type("Your arm mechanically reaches for the blind's wand...")
+        Window_YN()
+      elif choice == "C":
+        print("")
+        time.sleep(1)
+        Window_No()
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+
+def Text_Friend_Room():
+  slow_type("You start to type a response, missing a letter here or there.")
+  time.sleep(2)
+  slow_type("Before you finish, the phone shivers and dies.")
+  time.sleep(1)
+  slow_type("You left its charger in the bedroom.")
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Put the phone back down.
+        B) Get the charger.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        AB_Choice1_RoomB()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Bed_Room()
+        
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+def Text_Dad_Room():
+  slow_type("You know things have been hard for your father, and you haven't been there for him.")
+  time.sleep(1)
+  slow_type("You try to justify your absence:")
+  time.sleep(1)
+  slow_type("You're hundreds of miles away...")
+  time.sleep(1)
+  slow_type("You're trying to build a life in this city...")
+  time.sleep(1)
+  slow_type("You can't be held back by the past...")
+  time.sleep(2)
+  slow_type("You never really got along anyway...")
+  time.sleep(3)
+  slow_type("But nothing can excuse this silence.")
+  continue_path()
+  print("")
+  slow_type("You start to type a response, missing a letter here or there.")
+  time.sleep(2)
+  slow_type("Before you finish, the phone shivers and dies.")
+  time.sleep(1)
+  slow_type("You left its charger in the bedroom.")
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Put the phone back down.
+        B) Get the charger.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        AB_Choice1_RoomB()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Bed_Room()
+        
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+
+
+def Maintenance_Room_No():
+  slow_type("Apart from random noises, the fridge hasn't had any real issues.")
+  time.sleep(1)
+  slow_type("The tupperwared pasta and empty six packs stay reasonably cold.")
+  time.sleep(2)
+  slow_type("You return to your game, assured that the fridge will be fine.")
+  continue_path()
+  Anxiety_Hits()
+  
+
+def Pop_Room():
+  time.sleep(2)
+  slow_type("The doors are deadbolted.") 
+  time.sleep(1) 
+  slow_type("The cat's asleep.")
+  time.sleep(1)
+  slow_type("A break-in wouldn't sound like that anyway.")
+  time.sleep(2)
+  print ("")
+  time.sleep(2)
+  slow_type("It's nothing.")
+  time.sleep(1)
+  print("")
+  slow_type("Maybe you should call maintenace about the fridge?")
+  time.sleep(1)
+  
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) It's about time you put in a maintenace request.
+        B) Just get back to the game.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        Maintenance_Room_Yes()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Maintenance_Room_No()
+        
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+
+def AB_Choice_Pop():
+  slow_type("A sharp pop! resounds from behind you.")
+  time.sleep(2)
+  slow_type("It seems as if it's coming from the kitchen.")
+  time.sleep(1)
+  slow_type("The fridge has been acting strange lately...") 
+  time.sleep(2)
+  slow_type("but you can’t shake the feeling that it’s something more.")
+  
+  choice = ""
+  while choice != "A" and choice != "B":
+      choice = input('''
+        A) Check out the noise.
+        B) Ignore it and keep playing.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        Pop_Room()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Pop_Room()
+        
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+  
+def AB_Choice1_RoomA():
+  slow_type("You swipe the screen.")
+  time.sleep(2)          
+  slow_type("Your best friend asked how your day went several hours ago.")
+  time.sleep(1)
+  slow_type("Your dad's message from yesterday remains unanswered.")
+  time.sleep(1)
+  slow_type("He asked how you were, and wanted to let you know that he misses you.")
+  choice = ""
+  while choice != "A" and choice != "B" and choice != "C":
+      choice = input('''
+        A) Respond to your best friend.
+        B) Respond to your dad.
+        C) Leave the phone alone''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        Text_Friend_Room()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        Text_Dad_Room()
+      elif choice == "C":
+        time.sleep(1)
+        AB_Choice1_RoomB()
+      else:
+        slow_type("You cannot leave this place.")
+  return choice
+  
+  
+  
+def AB_Choice1_RoomB():
+  slow_type("You don’t feel like charging your phone right now.") 
+  time.sleep(1)
+  slow_type("You can deal with family and friends later.") 
+  time.sleep(1)
+  slow_type("None of the texts seem all that urgent anyway.")
+  time.sleep(2)
+  continue_path()
+  AB_Choice_Pop()
+
+
+area1 = "SrtR"
+
+def AB_Choice1():
+  if area1 == "SrtR":
+    slow_type ("A subtle glow appears on your periphery- a pulsing ember atop the corner of your phone.")
+    time.sleep(1)
+    slow_type("You can't recall when you stopped texting, or who you were talking to...")
+    time.sleep(1)
+    slow_type("but you know an unfinished conversation awaits you there.")
+    time.sleep(2)
+    slow_type ("what do you do?")
+
+    choice = ""
+    while choice != "A" and choice != "B":
+      choice = input('''
+        A) Check your phone.
+        B) Let it die.''')
+      print("")
+      if choice == "A":
+        print("")
+        time.sleep(1)
+        AB_Choice1_RoomA()
+      elif choice == "B":
+        print("")
+        time.sleep(1)
+        AB_Choice1_RoomB()
+        
+      else:
+        slow_type("You cannot leave this place.")
+    return choice
+
+intro()
+continue_path()
+intro_2()
+time.sleep(2)
+continue_path()
+time.sleep(2)
+AB_Choice1()
+
+              
